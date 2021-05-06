@@ -12,7 +12,7 @@ echo  "module load mpi/openmpi-x86_64" | tee --append /etc/profile.d/zzActivateO
 yum install zlib-devel texinfo gstreamer-plugins-base-devel \
 libXext-devel libGLU-devel libXt-devel libXrender-devel libXinerama-devel libpng-devel \
 libXrandr-devel libXi-devel libXft-devel libjpeg-turbo-devel libXcursor-devel \
-readline-devel ncurses-devel
+readline-devel ncurses-devel git
 
 yum -y update
 yum list openmpi-devel
