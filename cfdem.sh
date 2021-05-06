@@ -45,6 +45,9 @@ wget "https://raw.github.com/wyldckat/ThirdParty-2.0.x/binutils/makeBinutils"
 wget "https://raw.github.com/wyldckat/ThirdParty-2.0.x/binutils/getBinutils"
 chmod +x get* make*
 
+./makeCmake > log.makeCmake 2>&1
+wmRefresh
+
 ./getGcc gcc-4.8.5 gmp-5.1.2 mpfr-3.1.2 mpc-1.0.1
 ./makeGcc -no-multilib > log.makeGcc 2>&1
 wmRefresh
