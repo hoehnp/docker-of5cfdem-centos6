@@ -25,8 +25,10 @@ cd $HOME/OpenFOAM/ThirdParty-5.x
 mkdir download
 wget -P download https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.10/CGAL-4.10.tar.xz
 wget -P download https://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.tar.bz2
+wget -P download https://www.open-mpi.org/software/ompi/v2.1/downloads/openmpi-2.1.1.tar.bz2
 tar -xJf download/CGAL-4.10.tar.xz
 tar -xjf download/boost_1_55_0.tar.bz2
+tar -xjf download/openmpi-2.1.1.tar.bz2
 
 cd ..
 sed -i -e 's/\(boost_version=\)boost-system/\1boost_1_55_0/' OpenFOAM-5.x/etc/config.sh/CGAL
