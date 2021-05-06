@@ -60,7 +60,6 @@ wmRefresh
 ./makeCGAL > log.makeCGAL 2>&1
 wmRefresh
 
-exit 0
 
 cd $HOME/OpenFOAM/OpenFOAM-5.x
 
