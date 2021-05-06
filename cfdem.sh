@@ -22,11 +22,38 @@ source $HOME/OpenFOAM/OpenFOAM-5.x/etc/bashrc
 source $HOME/.bashrc
 
 cd $HOME/OpenFOAM/ThirdParty-5.x
+mkdir download
+wget -P download https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.10/CGAL-4.10.tar.xz
+wget -P download https://sourceforge.net/projects/boost/files/boost/1.55.0/boost_1_55_0.tar.bz2
+tar -xJf download/CGAL-4.10.tar.xz
+tar -xjf download/boost_1_55_0.tar.bz2
 
-./Allwmake
+cd ..
+sed -i -e 's/\(boost_version=\)boost-system/\1boost_1_55_0/' OpenFOAM-5.x/etc/config.sh/CGAL
+sed -i -e 's/\(cgal_version=\)cgal-system/\1CGAL-4.10/' OpenFOAM-5.x/etc/config.sh/CGAL
+source $HOME/OpenFOAM/OpenFOAM-5.x/etc/bashrc WM_COMPILER_TYPE=ThirdParty WM_COMPILER=Gcc48 WM_MPLIB=OPENMPI FOAMY_HEX_MESH=yes
+
+echo "alias of5x='source \$HOME/OpenFOAM/OpenFOAM-5.x/etc/bashrc $FOAM_SETTINGS'" >> $HOME/.bashrc
+
+cd $WM_THIRD_PARTY_DIR
+wget "https://raw.github.com/wyldckat/scripts4OpenFOAM3rdParty/master/getGcc"
+wget "https://raw.github.com/wyldckat/ThirdParty-2.0.x/binutils/makeBinutils"
+wget "https://raw.github.com/wyldckat/ThirdParty-2.0.x/binutils/getBinutils"
+chmod +x get* make*
+
+./getGcc gcc-4.8.5 gmp-5.1.2 mpfr-3.1.2 mpc-1.0.1
+./makeGcc -no-multilib > log.makeGcc 2>&1
+wmRefresh
+
+./getBinutils
+./makeBinutils gcc-4.8.5 > log.makeBinutils 2>&1
+wmRefresh
+
+./makeCGAL > log.makeCGAL 2>&1
+wmRefresh
 
 cd $HOME/OpenFOAM/OpenFOAM-5.x
-source $HOME/OpenFOAM/OpenFOAM-5.x/etc/bashrc WM_COMPILER_TYPE=ThirdParty WM_COMPILER=Gcc48 WM_MPLIB=OPENMPI FOAMY_HEX_MESH=yes
+
 ./Allwmake -j$(nproc)
 
 cd $HOME

@@ -2,8 +2,24 @@
 
 set -ux
 
-curl https://www.getpagespeed.com/files/centos6-eol.repo --output /etc/yum.repos.d/CentOS-Base.repo
-yum -y check-updates
+sed -i "15d" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "15s/#baseurl/baseurl/" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "15s/mirror/vault/" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "22d" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "22s/#baseurl/baseurl/" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "22s/mirror/vault/" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "29d" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "29s/#baseurl/baseurl/" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "29s/mirror/vault/" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "36d" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "36s/#baseurl/baseurl/" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "36s/mirror/vault/" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "44d" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "44s/#baseurl/baseurl/" /etc/yum.repos.d/CentOS-Base.repo
+sed -i "44s/mirror/vault/" /etc/yum.repos.d/CentOS-Base.repo
+
+yum install -y wget
+yum -y check-update
 
 yum -y install epel-release
 yum -y groupinstall "Development Tools"
