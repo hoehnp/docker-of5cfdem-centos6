@@ -1,4 +1,4 @@
-FROM centos:centos6.9
+FROM centos:centos6
 ADD ./install-packages.sh /tmp/install-packages.sh
 RUN ["chmod", "+x",  "/tmp/install-packages.sh"]
 RUN ["bash",  "-c", "/tmp/install-packages.sh"]
