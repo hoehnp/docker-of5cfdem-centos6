@@ -56,6 +56,8 @@ cd $HOME/OpenFOAM/OpenFOAM-5.x
 
 ./Allwmake -j$(nproc)
 
+exit(0)
+
 cd $HOME
 mkdir CFDEM
 cd CFDEM
