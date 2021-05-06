@@ -60,12 +60,13 @@ wmRefresh
 ./makeCGAL > log.makeCGAL 2>&1
 wmRefresh
 
+exit 0
+
 cd $HOME/OpenFOAM/OpenFOAM-5.x
 
 source $HOME/OpenFOAM/OpenFOAM-5.x/etc/bashrc WM_COMPILER_TYPE=ThirdParty WM_COMPILER=Gcc48 WM_MPLIB=OPENMPI FOAMY_HEX_MESH=yes
 ./Allwmake -j$(nproc)
 
-exit(0)
 
 cd $HOME
 mkdir CFDEM
