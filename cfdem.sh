@@ -53,6 +53,8 @@ wmRefresh
 ./makeBinutils gcc-4.8.5 > log.makeBinutils 2>&1
 wmRefresh
 
+export PATH=$PATH:/home/vagrant/OpenFOAM/ThirdParty-5.x/platforms/linux64Gcc48/cmake-3.2.1
+
 ./makeCGAL > log.makeCGAL 2>&1
 wmRefresh
 
