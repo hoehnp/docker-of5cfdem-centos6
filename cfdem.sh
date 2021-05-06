@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 echo "export PATH=\$PATH:\$MPI_ROOT/bin" >> ~/.bashrc
 echo "export LIBRARY_PATH=\$LIBRARY_PATH:\$MPI_ROOT/lib" >> ~/.bashrc
 echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$MPI_ROOT/lib" >> ~/.bashrc
@@ -130,4 +128,4 @@ mkdir -p $CFDEM_PROJECT_USER_DIR/platforms/$WM_OPTIONS/bin
 
 source $CFDEM_bashrc
 
-cfdemCompCFDEMall
+source $CFDEM_PROJECT_DIR/src/lagrangian/cfdemParticle/etc/compileCFDEMcoupling_all.sh
