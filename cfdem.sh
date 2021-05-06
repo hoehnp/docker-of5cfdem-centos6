@@ -24,9 +24,9 @@ source $HOME/.bashrc
 cd $HOME/OpenFOAM/ThirdParty-5.x
 
 ./Allwmake
-./makeParaView -config -make
 
 cd $HOME/OpenFOAM/OpenFOAM-5.x
+source $HOME/OpenFOAM/OpenFOAM-5.x/etc/bashrc WM_COMPILER_TYPE=ThirdParty WM_COMPILER=Gcc48 WM_MPLIB=OPENMPI FOAMY_HEX_MESH=yes
 ./Allwmake -j$(nproc)
 
 cd $HOME
